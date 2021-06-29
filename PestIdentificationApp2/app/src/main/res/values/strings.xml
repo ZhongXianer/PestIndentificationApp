@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PestIdentificationApp</string>
+    <string name="way_title">请选择上传方式</string>
+    <string name="recyclerview">list调试</string>
+</resources>
