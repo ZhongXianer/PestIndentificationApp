@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_min">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_max">32dp</dimen>
+    <dimen name="text_size">20sp</dimen>
+    <dimen name="picture_width">300dp</dimen>
+    <dimen name="button_width">250dp</dimen>
+    <dimen name="cardview_height">120dp</dimen>
+    <dimen name="cardview_radius">18dp</dimen>
+    <dimen name="item_pic_size">100dp</dimen>
+</resources>

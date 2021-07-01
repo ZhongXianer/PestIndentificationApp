@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.LibraryShowActivity">
+
+        <ScrollView
+            android:id="@+id/library_show_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/gradual_color_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/library_show_toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/library_show_pic"
+                    android:layout_width="@dimen/picture_width"
+                    android:layout_height="@dimen/picture_width"
+                    android:layout_marginStart="@dimen/margin_min"
+                    android:layout_marginEnd="@dimen/margin_min"
+                    android:background="@drawable/imageview_bg"
+                    android:padding="5dp"
+                    android:src="@drawable/insect"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/info_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/margin_min"
+                    android:layout_marginTop="@dimen/margin_min"
+                    app:layout_constraintTop_toBottomOf="@id/library_show_pic">
+
+                    <TextView
+                        android:id="@+id/info_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_min"
+                        android:layout_marginTop="@dimen/margin_min"
+                        android:layout_marginBottom="@dimen/margin_min"
+                        android:text="基本信息"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_size"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/lib_name_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_min"
+                        android:layout_marginTop="@dimen/margin_min"
+                        app:layout_constraintTop_toBottomOf="@id/info_title">
+
+                        <TextView
+                            android:id="@+id/lib_name_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_min"
+                            android:text="有害生物名称"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/lib_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/black"
+                            android:layout_marginStart="@dimen/margin_min"
+                            app:layout_constraintStart_toEndOf="@id/lib_name_title"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/lib_latin_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lib_name_layout"
+                        android:layout_marginStart="@dimen/margin_min">
+                        <TextView
+                            android:id="@+id/lib_latin_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="拉丁学名"
+                            android:layout_marginStart="@dimen/margin_min"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+                        <TextView
+                            android:id="@+id/lib_latin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_medium"
+                            android:textColor="@android:color/black"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/lib_latin_title"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/lib_order_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lib_latin_layout"
+                        android:layout_marginStart="@dimen/margin_min">
+                        <TextView
+                            android:id="@+id/lib_order_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="目"
+                            android:layout_marginStart="@dimen/margin_min"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+                        <TextView
+                            android:id="@+id/lib_order"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_min"
+                            android:textColor="@android:color/black"
+                            app:layout_constraintStart_toEndOf="@id/lib_order_title"
+                            app:layout_constraintTop_toTopOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/lib_genus_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lib_order_layout"
+                        android:layout_marginStart="@dimen/margin_min">
+                        <TextView
+                            android:id="@+id/lib_genus_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="属"
+                            android:layout_marginStart="@dimen/margin_min"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+                        <TextView
+                            android:id="@+id/lib_genus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_min"
+                            android:textColor="@android:color/black"
+                            app:layout_constraintStart_toEndOf="@id/lib_genus_title"
+                            app:layout_constraintTop_toTopOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/lib_family_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lib_genus_layout"
+                        android:layout_marginStart="@dimen/margin_min">
+                        <TextView
+                            android:id="@+id/lib_family_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="科"
+                            android:layout_marginStart="@dimen/margin_min"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+                        <TextView
+                            android:id="@+id/lib_family"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_min"
+                            android:textColor="@android:color/black"
+                            app:layout_constraintStart_toEndOf="@id/lib_family_title"
+                            app:layout_constraintTop_toTopOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/lib_plant_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_min"
+                    android:layout_marginTop="@dimen/margin_min"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_layout">
+
+                    <TextView
+                        android:id="@+id/lib_plant_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="分布植物"
+                        android:textSize="@dimen/text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/margin_min"
+                        android:layout_marginTop="@dimen/margin_min"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+                    <TextView
+                        android:id="@+id/lib_plant"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="false"
+                        android:text="杨、柳、榆、女贞、竹、苦楝、水杉、悬铃木、桑、三叶橡胶、柚木及多种果树、山楂、樱花、枫杨、苹果"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_marginEnd="@dimen/margin_min"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lib_plant_title"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/lib_area_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_min"
+                    android:layout_marginStart="@dimen/margin_min"
+                    android:layout_marginBottom="@dimen/margin_medium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/lib_plant_layout">
+                    <TextView
+                        android:id="@+id/lib_area_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="分布区域"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/margin_min"
+                        android:layout_marginTop="@dimen/margin_min"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+                    <TextView
+                        android:id="@+id/lib_area"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_marginEnd="@dimen/margin_min"
+                        android:text="惠山区、滨湖区；赣榆区、连云区；泰兴、靖江；宿迁泗阳、沭阳、宿城区、宿豫区；射阳、盐都、大丰；镇江市；斜桥社区、苏州高新区、吴中区、常熟、昆山、吴江区、太仓；徐州市：云龙区、鼓楼区、泉山区、开发区、丰县、沛县、铜山区、睢宁县、邳州市、新沂市、贾汪区"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lib_area_title"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/library_show_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/back_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

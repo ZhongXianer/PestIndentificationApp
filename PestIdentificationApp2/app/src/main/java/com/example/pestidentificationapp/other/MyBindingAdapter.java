@@ -1,15 +1,11 @@
 package com.example.pestidentificationapp.other;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.util.Log;
 import android.widget.ImageView;
 
 import androidx.annotation.LayoutRes;
-import androidx.annotation.NonNull;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.ObservableList;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
@@ -39,11 +35,6 @@ public class MyBindingAdapter {
                     view.getContext(), LinearLayoutManager.VERTICAL, false
             );
             view.setLayoutManager(layoutManager);
-
-            DividerItemDecoration decoration = new DividerItemDecoration(
-                    view.getContext(), LinearLayoutManager.VERTICAL
-            );
-            view.addItemDecoration(decoration);
         }
 
         BindAdapter<T> bindAdapter = (BindAdapter<T>) view.getAdapter();

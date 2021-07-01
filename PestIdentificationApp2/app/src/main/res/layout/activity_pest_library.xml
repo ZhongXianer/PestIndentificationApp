@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.PestLibraryActivity">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/pest_library_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/gradual_color_tb"
+            app:navigationIcon="@drawable/back_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <com.example.pestidentificationapp.other.BindRecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:list="@{pestLibraryViewModel.pestObservableList}"
+            app:layoutId="@{@layout/pest_library_item}"
+            app:layout_constraintTop_toBottomOf="@id/pest_library_toolbar"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <variable
+            name="pestLibraryViewModel"
+            type="com.example.pestidentificationapp.viewModel.PestLibraryViewModel" />
+    </data>
 </layout>

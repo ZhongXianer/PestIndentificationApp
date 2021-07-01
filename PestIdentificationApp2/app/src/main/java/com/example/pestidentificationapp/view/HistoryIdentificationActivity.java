@@ -1,22 +1,18 @@
 package com.example.pestidentificationapp.view;
 
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.util.Log;
-
-import com.example.pestidentificationapp.BR;
 import com.example.pestidentificationapp.R;
 import com.example.pestidentificationapp.databinding.ActivityHistoryIdentificationBinding;
-import com.example.pestidentificationapp.model.IdentificationResult;
-import com.example.pestidentificationapp.other.BindAdapter;
 import com.example.pestidentificationapp.viewModel.HistoryIdentificationViewModel;
 
-import java.util.Objects;
-
+/**
+ * 历史识别记录
+ */
 public class HistoryIdentificationActivity extends AppCompatActivity {
 
     ActivityHistoryIdentificationBinding historyIdentificationBinding;
@@ -36,6 +32,11 @@ public class HistoryIdentificationActivity extends AppCompatActivity {
     private void initToolBar() {
         historyIdentificationBinding.hisIdenToolbar.setTitle("");
         setSupportActionBar(historyIdentificationBinding.hisIdenToolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        historyIdentificationBinding.hisIdenToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HistoryIdentificationActivity.this.finish();
+            }
+        });
     }
 }

@@ -12,9 +12,7 @@ import retrofit2.http.Part;
 
 public interface Service {
 
-    @FormUrlEncoded
     @Multipart
-    @POST("/upload")
-    Call<String> testImageUpload(@Part MultipartBody.Part file,
-                                 @FieldMap Map<String,String> data);
+    @POST("predict")
+    Call<String> testImageUpload(@Part MultipartBody.Part file);
 }

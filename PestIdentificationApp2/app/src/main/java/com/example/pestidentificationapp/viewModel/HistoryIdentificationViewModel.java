@@ -6,24 +6,24 @@ import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableList;
 import androidx.lifecycle.ViewModel;
 
-import com.example.pestidentificationapp.model.IdentificationResult;
+import com.example.pestidentificationapp.model.HistoryIdentificationResult;
 
 public class HistoryIdentificationViewModel extends ViewModel {
 
-    private ObservableList<IdentificationResult> identificationResults = new ObservableArrayList<>();
+    private ObservableList<HistoryIdentificationResult> historyIdentificationResults = new ObservableArrayList<>();
 
     public HistoryIdentificationViewModel() {
         for (int i = 0; i < 10; i++) {
-            IdentificationResult identificationResult = new IdentificationResult();
-            identificationResult.setPestName("害虫");
-            identificationResult.setDate("2021/6/28");
-            identificationResult.setTime("17:12:56");
-            identificationResults.add(identificationResult);
+            HistoryIdentificationResult historyIdentificationResult = new HistoryIdentificationResult();
+            historyIdentificationResult.setPestName("害虫");
+            historyIdentificationResult.setDate("2021/6/28");
+            historyIdentificationResult.setTime("17:12:56");
+            historyIdentificationResults.add(historyIdentificationResult);
         }
-        Log.d("list", "HistoryIdentificationViewModel: "+identificationResults.size());
+        Log.d("list", "HistoryIdentificationViewModel: "+ historyIdentificationResults.size());
     }
 
-    public ObservableList<IdentificationResult> getIdentificationResults() {
-        return this.identificationResults;
+    public ObservableList<HistoryIdentificationResult> getHistoryIdentificationResults() {
+        return this.historyIdentificationResults;
     }
 }
