@@ -1,36 +1,41 @@
 package com.example.pestidentificationapp.viewModel;
 
+import android.util.Log;
+
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableList;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.pestidentificationapp.model.Pest;
+import com.example.pestidentificationapp.model.ResponseLibraryDate;
+import com.example.pestidentificationapp.network.NetWorkUtil;
+import com.example.pestidentificationapp.other.ARouterUtil;
+import com.example.pestidentificationapp.other.Event;
 import com.example.pestidentificationapp.other.OnRecyclerItemClickListener;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PestLibraryViewModel extends ViewModel {
 
     private ObservableList<Pest> pestObservableList = new ObservableArrayList<>();
-    private Pest clickedPest;
     private OnRecyclerItemClickListener libraryItemClickListener = new OnRecyclerItemClickListener() {
         @Override
         public void onRecyclerItemClick(Object item) {
-            clickedPest = (Pest) item;
+            Pest pest = (Pest) item;
+            ARouter.getInstance().build(ARouterUtil.LibraryShowAct)
+                    .withObject("pest", pest)
+                    .navigation();
         }
     };
-
-    public PestLibraryViewModel() {
-        for (int i = 0; i < 10; i++) {
-            Pest pest = new Pest();
-            pest.setName("黑蚱蝉");
-            pest.setOrder("半翅目");
-            pest.setGenus("蝉科");
-            pest.setFamily("蚱蝉属");
-            pest.setPlant("杨、柳、榆、女贞、竹、苦楝、水杉、悬铃木、桑、三叶橡胶、柚木及多种果树、山楂、樱花、枫杨、苹果");
-            pest.setLatinName("Cryptotympana atrata Fabricius");
-            pest.setArea("惠山区、滨湖区；赣榆区、连云区；泰兴、靖江；宿迁泗阳、沭阳、宿城区、宿豫区；射阳、盐都、大丰；镇江市；斜桥社区、苏州高新区、吴中区、常熟、昆山、吴江区、太仓；徐州市：云龙区、鼓楼区、泉山区、开发区、丰县、沛县、铜山区、睢宁县、邳州市、新沂市、贾汪区");
-            pestObservableList.add(pest);
-        }
-    }
+    private MutableLiveData<Event<String>> networkError = new MutableLiveData<>();
 
     public ObservableList<Pest> getPestObservableList() {
         return pestObservableList;
@@ -40,7 +45,27 @@ public class PestLibraryViewModel extends ViewModel {
         return libraryItemClickListener;
     }
 
-    public Pest getClickedPest() {
-        return clickedPest;
+    /**
+     * 从服务器获取所有昆虫的相关信息
+     */
+    public MutableLiveData<List<Pest>> getPestListFromInt() {
+        final MutableLiveData<List<Pest>> pestList = new MutableLiveData<>();
+        Call<List<Pest>> call = NetWorkUtil.getBaseService().getAllPests();
+        call.enqueue(new Callback<List<Pest>>() {
+            @Override
+            public void onResponse(@NotNull Call<List<Pest>> call, @NotNull Response<List<Pest>> response) {
+                pestList.postValue(response.body());
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<List<Pest>> call, @NotNull Throwable t) {
+                networkError.postValue(new Event<>(t.getMessage()));
+            }
+        });
+        return pestList;
+    }
+
+    public MutableLiveData<Event<String>> getNetworkError() {
+        return networkError;
     }
 }

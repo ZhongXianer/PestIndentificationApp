@@ -14,9 +14,13 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.pestidentificationapp.R;
 import com.example.pestidentificationapp.databinding.ActivityMainBinding;
 import com.example.pestidentificationapp.model.IdentificationResultShow;
+import com.example.pestidentificationapp.model.MyPhoto;
+import com.example.pestidentificationapp.other.ARouterUtil;
 import com.example.pestidentificationapp.other.GlideEngine;
 import com.example.pestidentificationapp.viewModel.MainViewModel;
 import com.huantansheng.easyphotos.EasyPhotos;
@@ -27,6 +31,7 @@ import java.util.ArrayList;
 /**
  * 主界面
  */
+@Route(path = "/test/main_activity")
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding mainBinding;
@@ -55,28 +60,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 popDialog();
-            }
-        });
-        //历史识别
-        mainBinding.historyIdentificationBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, HistoryIdentificationActivity.class);
-                startActivity(intent);
-            }
-        });
-        //有害昆虫信息库
-        mainBinding.pestLibraryBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, PestLibraryActivity.class);
-                startActivity(intent);
-            }
-        });
-        //信息反馈
-        mainBinding.feedbackBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
             }
         });
     }
@@ -118,11 +101,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == requestCode_easyPhotos && resultCode == RESULT_OK) {
+            assert data != null;
             ArrayList<Photo> resultPhotos = data.getParcelableArrayListExtra(EasyPhotos.RESULT_PHOTOS);
-            mainBinding.getMainViewModel().upload(resultPhotos.get(0));
-//            Intent intent = new Intent(MainActivity.this, ResultShowActivity.class);
-//            intent.putExtra("photoUri", resultPhotos.get(0).uri.toString());
-//            startActivity(intent);
+            assert resultPhotos != null;
+            Photo photo = resultPhotos.get(0);
+            MyPhoto myPhoto = new MyPhoto(photo.uri.toString(), photo.name, photo.path);
+            ARouter.getInstance().build(ARouterUtil.ResultShowAct)
+                    .withObject("photo", myPhoto)
+                    .navigation();
         }
     }
 }

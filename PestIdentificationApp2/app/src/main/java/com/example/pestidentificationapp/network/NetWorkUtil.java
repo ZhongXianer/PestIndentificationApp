@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetWorkUtil {
 
-    private static String BaseUrl = "http://192.168.43.171:5000/";
+    public static String BaseUrl = "http://192.168.43.171:5000/";
     private static Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(BaseUrl)
             .addConverterFactory(GsonConverterFactory.create())

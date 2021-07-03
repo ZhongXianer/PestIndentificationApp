@@ -31,7 +31,8 @@ public abstract class BindAdapter<T> extends RecyclerView.Adapter<BindAdapter.Bi
         observableList.addOnListChangedCallback(new ObservableList.OnListChangedCallback<ObservableList<T>>() {
             @Override
             public void onChanged(ObservableList<T> sender) {
-
+                list.clear();
+                list.addAll(sender);
             }
 
             @Override
@@ -46,7 +47,7 @@ public abstract class BindAdapter<T> extends RecyclerView.Adapter<BindAdapter.Bi
                     public void run() {
                         list.add(positionStart, sender.get(positionStart));
                         notifyItemRangeInserted(positionStart, itemCount);
-                        view.scrollToPosition(positionStart);
+                        view.scrollToPosition(itemCount - 1);
                     }
                 });
             }

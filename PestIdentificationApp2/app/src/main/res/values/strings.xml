@@ -2,4 +2,9 @@
     <string name="app_name">PestIdentificationApp</string>
     <string name="way_title">请选择上传方式</string>
     <string name="recyclerview">list调试</string>
+    <string name="pest_name">有害生物名称</string>
+    <string name="latin_name">拉丁学名</string>
+    <string name="plant">分布植物</string>
+    <string name="area">分布区域</string>
+    <string name="save_and_exit">保存结果并退出</string>
 </resources>

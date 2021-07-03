@@ -10,6 +10,14 @@ public class HistoryIdentificationResult {
     private String date; //识别日期
     private String time; //识别时间
 
+    public HistoryIdentificationResult(String pestUri, String pestName, String pestLatinName, String date, String time) {
+        this.pestUri = pestUri;
+        this.pestName = pestName;
+        this.pestLatinName = pestLatinName;
+        this.date = date;
+        this.time = time;
+    }
+
     public String getPestUri() {
         return pestUri;
     }

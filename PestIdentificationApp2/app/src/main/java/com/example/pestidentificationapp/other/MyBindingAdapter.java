@@ -18,9 +18,10 @@ public class MyBindingAdapter {
     @BindingAdapter(value = "img")
     public static void loadImage(ImageView imageView, String url) {
         Glide.with(imageView.getContext()).load(url).into(imageView);
+        Log.d("请求", "loadImage: " + url);
     }
 
-    @BindingAdapter(value = {"layoutId",  "list", "itemClickListener"}, requireAll = false)
+    @BindingAdapter(value = {"layoutId", "list", "itemClickListener"}, requireAll = false)
     public static <T> void setAdapter(BindRecyclerView view,
                                       @LayoutRes final int layoutId,
                                       ObservableList<T> list,
@@ -30,7 +31,6 @@ public class MyBindingAdapter {
             return;
         }
         if (view.getLayoutManager() == null) {
-            //default LinearLayoutManager 垂直布局
             LinearLayoutManager layoutManager = new LinearLayoutManager(
                     view.getContext(), LinearLayoutManager.VERTICAL, false
             );

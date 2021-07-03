@@ -17,11 +17,14 @@
             <ImageView
                 android:id="@+id/lib_item_pic"
                 android:layout_width="@dimen/item_pic_size"
-                android:layout_height="@dimen/item_pic_size"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
                 android:layout_margin="10dp"
                 android:src="@drawable/insect"
+                app:img="@{NetWorkUtil.BaseUrl+item.picture}"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/lib_item_name_layout"
@@ -86,6 +89,7 @@
 
     <data>
 
+        <import type="com.example.pestidentificationapp.network.NetWorkUtil"/>
         <variable
             name="item"
             type="com.example.pestidentificationapp.model.Pest" />

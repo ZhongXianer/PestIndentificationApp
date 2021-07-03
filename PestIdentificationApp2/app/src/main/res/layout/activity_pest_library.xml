@@ -13,20 +13,32 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@drawable/gradual_color_tb"
-            app:navigationIcon="@drawable/back_icon"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/back_icon" />
+
         <com.example.pestidentificationapp.other.BindRecyclerView
+            android:id="@+id/pest_library_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:list="@{pestLibraryViewModel.pestObservableList}"
+            android:background="@color/colorPrimary"
+            app:itemClickListener="@{pestLibraryViewModel.libraryItemClickListener}"
             app:layoutId="@{@layout/pest_library_item}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/pest_library_toolbar"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:list="@{pestList}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <data>
+
+        <import type="androidx.databinding.ObservableList" />
+
+        <import type="com.example.pestidentificationapp.model.Pest" />
+
+        <variable
+            name="pestList"
+            type="ObservableList&lt;Pest>" />
 
         <variable
             name="pestLibraryViewModel"

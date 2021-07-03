@@ -30,13 +30,21 @@
             android:id="@+id/his_iden_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:background="@color/colorPrimary"
             app:layoutId="@{@layout/history_identification_item}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/his_iden_toolbar"
-            app:list="@{historyIdentificationViewModel.historyIdentificationResults}" />
+            app:list="@{resultList}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <data>
+
+        <import type="androidx.databinding.ObservableList"/>
+        <import type="com.example.pestidentificationapp.model.HistoryIdentificationResult"/>
+
+        <variable
+            name="resultList"
+            type="ObservableList&lt;HistoryIdentificationResult>" />
 
         <variable
             name="historyIdentificationViewModel"
