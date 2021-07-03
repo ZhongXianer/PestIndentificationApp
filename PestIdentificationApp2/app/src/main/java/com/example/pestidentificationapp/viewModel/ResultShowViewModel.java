@@ -1,25 +1,20 @@
 package com.example.pestidentificationapp.viewModel;
 
 import android.content.SharedPreferences;
-import android.view.View;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.pestidentificationapp.model.HistoryIdentificationJson;
 import com.example.pestidentificationapp.model.HistoryIdentificationResult;
 import com.example.pestidentificationapp.model.IdentificationResultShow;
 import com.example.pestidentificationapp.model.MyPhoto;
 import com.example.pestidentificationapp.model.Pest;
 import com.example.pestidentificationapp.network.NetWorkUtil;
 import com.example.pestidentificationapp.other.Event;
-import com.example.pestidentificationapp.other.JsonSerializationService;
 import com.example.pestidentificationapp.other.Util;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.huantansheng.easyphotos.models.album.entity.Photo;
 
 import org.jetbrains.annotations.NotNull;
 

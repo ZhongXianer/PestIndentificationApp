@@ -3,14 +3,11 @@ package com.example.pestidentificationapp.viewModel;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import androidx.databinding.ListChangeRegistry;
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableList;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.pestidentificationapp.model.HistoryIdentificationJson;
 import com.example.pestidentificationapp.model.HistoryIdentificationResult;
 import com.example.pestidentificationapp.other.Util;
 import com.google.gson.Gson;
