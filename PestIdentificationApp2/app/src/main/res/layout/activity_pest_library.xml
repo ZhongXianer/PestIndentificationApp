@@ -26,7 +26,18 @@
             app:layoutId="@{@layout/pest_library_item}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/pest_library_toolbar"
-            app:list="@{pestList}"/>
+            app:list="@{pestList}" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/load_info_gif"
+            android:layout_width="@dimen/item_pic_size"
+            android:layout_height="@dimen/item_pic_size"
+            android:scaleType="fitCenter"
+            android:src="@drawable/process"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pest_library_toolbar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

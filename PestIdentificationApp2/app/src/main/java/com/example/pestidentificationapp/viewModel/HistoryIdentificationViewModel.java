@@ -1,10 +1,14 @@
 package com.example.pestidentificationapp.viewModel;
 
+import android.app.Application;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableList;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -16,14 +20,16 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public class HistoryIdentificationViewModel extends ViewModel {
+public class HistoryIdentificationViewModel extends AndroidViewModel {
 
     private ObservableList<HistoryIdentificationResult> historyIdentificationResults = new ObservableArrayList<>();
 
-    public HistoryIdentificationViewModel() {
+    public HistoryIdentificationViewModel(@NonNull Application application) {
+        super(application);
     }
 
-    public MutableLiveData<List<HistoryIdentificationResult>> getListFromMemory(SharedPreferences sharedPreferences) {
+    public MutableLiveData<List<HistoryIdentificationResult>> getListFromMemory() {
+        SharedPreferences sharedPreferences=getApplication().getSharedPreferences(Util.ShpName, Context.MODE_PRIVATE);
         String s = sharedPreferences.getString(Util.SavedListName, null);
         Log.d("save", "getListFromMemory: "+s);
         MutableLiveData<List<HistoryIdentificationResult>> list = new MutableLiveData<>();

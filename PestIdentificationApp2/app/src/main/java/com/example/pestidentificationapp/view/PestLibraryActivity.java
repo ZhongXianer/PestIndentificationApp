@@ -1,15 +1,15 @@
 package com.example.pestidentificationapp.view;
 
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableList;
 import androidx.lifecycle.Observer;
-
-import android.graphics.Color;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.pestidentificationapp.R;
@@ -19,7 +19,6 @@ import com.example.pestidentificationapp.other.Event;
 import com.example.pestidentificationapp.viewModel.PestLibraryViewModel;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
  * 有害昆虫信息库
@@ -44,8 +43,10 @@ public class PestLibraryActivity extends AppCompatActivity {
         pestLibraryViewModel.getPestListFromInt().observe(this, new Observer<List<Pest>>() {
             @Override
             public void onChanged(List<Pest> pests) {
+                pestLibraryBinding.loadInfoGif.setVisibility(View.INVISIBLE);
                 ObservableList<Pest> list = new ObservableArrayList<>();
-                list.addAll(pests);
+                if (pests != null)
+                    list.addAll(pests);
                 pestLibraryBinding.setPestList(list);
             }
         });

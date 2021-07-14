@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.pestidentificationapp.R;
@@ -21,6 +22,7 @@ public class FeedBackActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         feedBackBinding = DataBindingUtil.setContentView(this, R.layout.activity_feed_back);
         initToolbar();
+        initCommitBtn();
     }
 
     private void initToolbar() {
@@ -30,6 +32,16 @@ public class FeedBackActivity extends AppCompatActivity {
         feedBackBinding.feedbackToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
+            }
+        });
+    }
+
+    private void initCommitBtn() {
+        feedBackBinding.feedbackCommit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(FeedBackActivity.this,"提交成功",Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

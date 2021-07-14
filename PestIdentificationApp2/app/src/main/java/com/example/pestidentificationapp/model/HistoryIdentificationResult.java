@@ -18,6 +18,11 @@ public class HistoryIdentificationResult {
         this.time = time;
     }
 
+    public HistoryIdentificationResult(String pestName, String pestLatinName) {
+        this.pestName = pestName;
+        this.pestLatinName = pestLatinName;
+    }
+
     public String getPestUri() {
         return pestUri;
     }

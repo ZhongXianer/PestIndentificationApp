@@ -1,10 +1,14 @@
 <resources>
-    <string name="app_name">PestIdentificationApp</string>
+    <string name="app_name">识虫</string>
     <string name="way_title">请选择上传方式</string>
-    <string name="recyclerview">list调试</string>
     <string name="pest_name">有害生物名称</string>
     <string name="latin_name">拉丁学名</string>
     <string name="plant">分布植物</string>
     <string name="area">分布区域</string>
     <string name="save_and_exit">保存结果并退出</string>
+    <string name="possible_result">可能结果</string>
+    <string name="probability">可能性</string>
+    <string name="pest_picture">害虫图片</string>
+    <string name="info_para1">本系统是基于通过对大数据、智能识别、深度学习等技术的应用，选取卷积神经网络中的ResNet网络作为识别分类模型，选取RA-CNN网络作为细粒度分类模型，针对常见林业害虫通过应用手机拍摄或选取相册中的害虫图像，经分析处理后可智能识别害虫种类、识别率、个数等信息的识别系统。</string>
+    <string name="info_para2">对农林业工作人员而言，使用该系统可以灵活地通过手机拍照或者手动上传等方式提交林业有害生物图像照片，经预览、裁剪等操作处理后上传至服务器进行识别。反馈害虫种类、识别率、个数等信息。使得农林业防治害虫工作达到系统化和自动化，大大提高了农林防害虫的工作效率。</string>
 </resources>

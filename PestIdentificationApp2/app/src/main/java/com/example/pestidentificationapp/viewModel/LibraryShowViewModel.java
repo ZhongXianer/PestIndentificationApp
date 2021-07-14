@@ -4,7 +4,6 @@ import androidx.databinding.ObservableField;
 import androidx.lifecycle.ViewModel;
 
 import com.example.pestidentificationapp.model.Pest;
-import com.example.pestidentificationapp.view.LibraryShowActivity;
 
 public class LibraryShowViewModel extends ViewModel {
 

@@ -121,6 +121,20 @@
                         app:layout_constraintEnd_toEndOf="parent"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
+            
+            <Button
+                android:id="@+id/feedback_commit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="点击提交"
+                android:background="@drawable/btn_save"
+                android:textColor="@android:color/white"
+                android:paddingStart="@dimen/margin_max"
+                android:paddingEnd="@dimen/margin_max"
+                android:layout_marginBottom="@dimen/margin_max"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -2,14 +2,11 @@ package com.example.pestidentificationapp.viewModel;
 
 import android.util.Log;
 
-import androidx.databinding.ObservableArrayList;
-import androidx.databinding.ObservableList;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.pestidentificationapp.model.Pest;
-import com.example.pestidentificationapp.model.ResponseLibraryDate;
 import com.example.pestidentificationapp.network.NetWorkUtil;
 import com.example.pestidentificationapp.other.ARouterUtil;
 import com.example.pestidentificationapp.other.Event;
@@ -25,7 +22,6 @@ import retrofit2.Response;
 
 public class PestLibraryViewModel extends ViewModel {
 
-    private ObservableList<Pest> pestObservableList = new ObservableArrayList<>();
     private OnRecyclerItemClickListener libraryItemClickListener = new OnRecyclerItemClickListener() {
         @Override
         public void onRecyclerItemClick(Object item) {
@@ -36,10 +32,6 @@ public class PestLibraryViewModel extends ViewModel {
         }
     };
     private MutableLiveData<Event<String>> networkError = new MutableLiveData<>();
-
-    public ObservableList<Pest> getPestObservableList() {
-        return pestObservableList;
-    }
 
     public OnRecyclerItemClickListener getLibraryItemClickListener() {
         return libraryItemClickListener;
@@ -60,6 +52,8 @@ public class PestLibraryViewModel extends ViewModel {
             @Override
             public void onFailure(@NotNull Call<List<Pest>> call, @NotNull Throwable t) {
                 networkError.postValue(new Event<>(t.getMessage()));
+                Log.d("network", "onFailure: "+t.getMessage());
+                Log.d("network", "onFailure: "+networkError.getValue().peekContent());
             }
         });
         return pestList;

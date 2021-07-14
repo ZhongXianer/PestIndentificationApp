@@ -11,6 +11,20 @@
         android:background="@drawable/gradual_color_bg"
         tools:context=".view.MainActivity">
 
+        <ImageView
+            android:id="@+id/feedback_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="@dimen/margin_max"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:src="@drawable/feedback"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{mainViewModel.feedBackBtnListener}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,7 +80,7 @@
                 app:layout_constraintEnd_toEndOf="parent"/>
 
             <Button
-                android:id="@+id/feedback_btn"
+                android:id="@+id/offline_btn"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
@@ -74,8 +88,7 @@
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:padding="10dp"
-                android:text="意见反馈"
-                android:onClick="@{mainViewModel.feedBackBtnListener}"
+                android:text="离线识别"
                 android:layout_marginTop="@dimen/margin_medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

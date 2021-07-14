@@ -5,7 +5,11 @@ public class MyPhoto {
     private String name;
     private String path;
 
-    public MyPhoto(String Uri, String name, String path) {
+    public MyPhoto(){
+
+    }
+
+    public MyPhoto(String Uri, String name,String path) {
         this.Uri = Uri;
         this.name = name;
         this.path = path;

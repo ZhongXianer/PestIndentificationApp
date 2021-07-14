@@ -9,7 +9,6 @@ import androidx.databinding.ObservableList;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
-import com.example.pestidentificationapp.R;
 
 import java.util.Objects;
 
@@ -17,7 +16,8 @@ public class MyBindingAdapter {
 
     @BindingAdapter(value = "img")
     public static void loadImage(ImageView imageView, String url) {
-        Glide.with(imageView.getContext()).load(url).into(imageView);
+        if (url != null)
+            Glide.with(imageView.getContext()).load(url).into(imageView);
         Log.d("请求", "loadImage: " + url);
     }
 
@@ -27,7 +27,6 @@ public class MyBindingAdapter {
                                       ObservableList<T> list,
                                       OnRecyclerItemClickListener itemClickListener) {
         if (list == null) {
-            Log.d(String.valueOf(R.string.recyclerview), "setAdapter:列表为空 ");
             return;
         }
         if (view.getLayoutManager() == null) {

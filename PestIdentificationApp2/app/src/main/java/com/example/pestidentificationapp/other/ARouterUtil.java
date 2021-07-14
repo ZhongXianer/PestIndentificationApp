@@ -7,6 +7,7 @@ public class ARouterUtil {
     public static String PestLibraryAct = "/test/pest_lib_activity";
     public static String LibraryShowAct = "/test/lib_show_activity";
     public static String ResultShowAct = "/test/res_show_activity";
-    public static String FeesBackAct="/test/feed_back_activity";
-
+    public static String FeesBackAct = "/test/feed_back_activity";
+    public static String OffLineResultAct = "/test/offline_result_activity";
+    public static String InformationAct = "/test/information_activity";
 }
